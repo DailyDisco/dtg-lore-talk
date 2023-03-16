@@ -4,6 +4,9 @@ const config = {
     {
       extends: [
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "next/core-web-vitals",
+        "next",
+        "prettier",
       ],
       files: ["*.ts", "*.tsx"],
       parserOptions: {
