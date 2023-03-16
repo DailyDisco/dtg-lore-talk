@@ -4,29 +4,29 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
 
-    useEffect(() => {
-        const body = document.querySelector('body')
-        const sideMobile = document.getElementById('side-bar')
-        function initializeMenu(){
+    // useEffect(() => {
+    //     const body = document.querySelector('body')
+    //     const sideMobile = document.getElementById('side-bar')
+    //     function initializeMenu(){
             
-        }
-        initializeMenu()
-        return
-    }, [])
+    //     }
+    //     initializeMenu()
+    //     return
+    // }, [])
 
-    function openMenuMobile(){
-        if(isOpen){
-            body.classList.remove('overflow-y-hidden')
-            sideMobile.classList.remove('translate-x-0')
-            sideMobile.classList.add('translate-x-[-100%]')
-            setIsOpen(true)
-        }else{
-            body.classList.add('overflow-y-hidden')
-            sideMobile.classList.remove('translate-x-[-100%]')
-            sideMobile.classList.add('translate-x-0')
-            setIsOpen(false)
-        }
-    }
+    // function openMenuMobile(){
+    //     if(isOpen){
+    //         body.classList.remove('overflow-y-hidden')
+    //         sideMobile.classList.remove('translate-x-0')
+    //         sideMobile.classList.add('translate-x-[-100%]')
+    //         setIsOpen(true)
+    //     }else{
+    //         body.classList.add('overflow-y-hidden')
+    //         sideMobile.classList.remove('translate-x-[-100%]')
+    //         sideMobile.classList.add('translate-x-0')
+    //         setIsOpen(false)
+    //     }
+    // }
     
     return (
         <>
@@ -37,7 +37,7 @@ const Header = () => {
                             <h2 className="font-bold text-3xl">DTG Lore Talk</h2>
                         </div>
                     </div>
-                    <button className="" onClick={openMenuMobile}>
+                    <button className="">
                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user" width="36" height="36" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <circle cx="12" cy="7" r="4" />
