@@ -1,17 +1,13 @@
-import { type NextPage } from "next";
-import Head from "next/head";
+import { ReactElement } from "react";
 import Link from "next/link";
-
-import Header from "./components/common/Header";
-import Footer from "./components/common/Footer";
-
+import Head from "next/head";
+// import { type NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
-
 import { api } from "~/utils/api";
-import PrimaryLayout from "./components/layouts/PrimaryLayout";
 import { NextPageWithLayout } from "./page";
+import PrimaryLayout from "../components/layouts/PrimaryLayout";
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   return (
@@ -23,7 +19,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="">
         <section className="">
-          <h1 className="text-center text-2xl uppercase">Test</h1>
+          <h1 className="mb-7 text-center text-2xl uppercase">Test</h1>
           <p>
             {" "}
             Velit veniam sunt cillum veniam laborum aute enim deserunt. Aliqua
@@ -44,9 +40,10 @@ const Home: NextPage = () => {
 
 export default Home;
 
-Home.getLayout = (page) => {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
-};
+// When we set up multiple layouts, we can use this to set the layout for each page by passing it as a property to the page component.
+// Home.getLayout = (page: ReactElement) => {
+//   return <PrimaryLayout>{page}</PrimaryLayout>;
+// };
 
 const AuthShowcase: React.FC = () => {
   const { data: sessionData } = useSession();

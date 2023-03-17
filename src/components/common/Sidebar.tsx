@@ -6,10 +6,10 @@ const Sidebar = () => {
       <div>
         <ul className="list-none">
           <li>
-            <Link href={""}>Test</Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href={""}>Test</Link>
+            <Link href={"/messages"}>Messages</Link>
           </li>
           <li>
             <Link href={""}>Test</Link>
