@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const MessagesRow = () => {
+const CardRow = () => {
   return (
-    <ul className="row w mb-7 flex">
+    <ul className="row b mb-7 flex justify-between bg-slate-400">
       <Link href="/user/profilePage">
         <li>
           <Image
@@ -16,17 +16,20 @@ const MessagesRow = () => {
           />
         </li>
       </Link>
-      <div className="ml-7">
-        <Link href="/user/profilePage">
-          <li>The Traveler</li>
-        </Link>
 
-        <Link href="/user/profilePage">
-          <li>This is the description for the post...</li>
-        </Link>
-      </div>
+      <Link href="">
+        <li>Looking for group</li>
+      </Link>
+
+      <Link href="/user/profilePage">
+        <li>The Traveler</li>
+      </Link>
+
+      <li>99</li>
+
+      <li>99</li>
     </ul>
   );
 };
 
-export default MessagesRow;
+export default CardRow;
