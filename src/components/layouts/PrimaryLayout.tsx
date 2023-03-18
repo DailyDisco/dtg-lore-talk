@@ -20,10 +20,10 @@ const PrimaryLayout = ({ children, ...divProps }) => {
       <div {...divProps}>
         {/* Render the navigation bar */}
         <Header />
-        <div className="$ flex h-screen justify-between">
+        <div className="flex h-screen justify-between">
           {/* change the width of the main contents here */}
           <main
-            className="mt-11 ml-14 w-8/12"
+            className="mt-24 ml-24 w-8/12"
             role="main"
             tabIndex={0}
             aria-label="main content"
