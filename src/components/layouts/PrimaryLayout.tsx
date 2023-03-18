@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Footer from "../common/Footer";
 import Header from "../common/Header";
+import ReusableButton from "../common/ReusableButton";
 // import Sidebar from "../common/Sidebar";
 
 // // Interface for the props of the PrimaryLayout component
@@ -20,6 +21,7 @@ const PrimaryLayout = ({ children, ...divProps }) => {
       <div {...divProps}>
         {/* Render the navigation bar */}
         <Header />
+        <ReusableButton ButtonName={"Messages"} />
         <div className="flex h-screen justify-between">
           {/* change the width of the main contents here */}
           <main
