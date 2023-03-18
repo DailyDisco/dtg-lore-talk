@@ -10,7 +10,9 @@ const postThread = () => {
             <input type="text" name="title" id="title" />
             <label htmlFor="body">Body</label>
             <textarea name="body" id="body" cols={30} rows={10} />
-            <button type="submit">Post</button>
+            <button className="bg-blue-500 hover:bg-blue-700" type="submit">
+              Post
+            </button>
           </form>
         </section>
       </main>
