@@ -1,5 +1,6 @@
 import Image from "next/image";
-import CardRow from "~/components/common/CardRow";
+import CardRow from "~/components/home/CardRow";
+
 import Cayde from "~/public/Cayde.jpg";
 
 // don't let user use this till they're logged in

@@ -14,6 +14,10 @@ If you are not familiar with the different technologies used in this project, pl
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
 
+# Prisma
+
+Make sure to run `npx prisma generate` (for MongoDB) to create a Prisma folder with the generated Prisma Client.
+
 ## Learn More
 
 To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
@@ -26,3 +30,19 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+```
+
+```
+
+## Notes
+
+To set types for objects use the following syntax:
+
+```ts
+    {index}: {index: any}
+    // or
+    {indexA, indexB}: {indexA: any, indexB: any}
+```
+
+Note: Don't set them as any, set them as the correct type.

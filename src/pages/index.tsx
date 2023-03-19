@@ -1,16 +1,14 @@
 import { ReactElement } from "react";
-import Link from "next/link";
 import Head from "next/head";
 // import { type NextPage } from "next";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { api } from "~/utils/api";
 import { NextPageWithLayout } from "./page";
-import PrimaryLayout from "../components/layouts/PrimaryLayout";
-import Card from "~/components/common/Card";
+import Card from "~/components/home/Card";
+import { PrismaClient } from "@prisma/client";
 
-const Home: NextPageWithLayout = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-
+const Home: NextPageWithLayout = ({ threads }: { threads: any }) => {
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
   return (
     <>
       <Head>
@@ -21,21 +19,29 @@ const Home: NextPageWithLayout = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
-        <section className="">
-          <Card />
+      <main>
+        <section>
+          <Card threads={threads} />
+          {/* For tRPC */}
+          {/* <p className="text-2xl text-white">
+            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+          </p> */}
         </section>
       </main>
-      {/* <p className="text-2xl text-white">
-              {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-            </p> */}
     </>
   );
 };
 
 export default Home;
 
+{
+  /* <p className="text-2xl text-white">
+              {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+            </p> */
+}
+
 // When we set up multiple layouts, we can use this to set the layout for each page by passing it as a property to the page component.
+
 // Home.getLayout = (page: ReactElement) => {
 //   return <PrimaryLayout>{page}</PrimaryLayout>;
 // };
@@ -63,3 +69,22 @@ const AuthShowcase: React.FC = () => {
     </div>
   );
 };
+
+// using getStaticProps we will fetch the threads from the database and pass them to the page component as props
+
+// after that we will use the .map function to map the CardRows component with the proper data
+// {posts.map((post) => (<CardRow key={post.id} thread={thread.?id} />))}
+
+// do the same for the messages
+
+export async function getStaticProps() {
+  const prisma = new PrismaClient();
+  const threads = (await prisma.threads.findMany()) || [];
+  console.log(threads, "threads return in getStaticProps");
+
+  return {
+    props: {
+      threads,
+    },
+  };
+}

@@ -68,3 +68,16 @@ model VerificationToken {
     @@unique([id, token])
     @@map("verification_tokens")
 }
+
+model Threads {
+    id       String   @id @default(auto()) @map("_id") @db.ObjectId
+    title    String
+    body    String
+    image   String
+    // createdAt DateTime @default(now())
+    // updatedAt DateTime @updatedAt
+    userID String
+    category String
+    views Int
+    replies Int
+}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CardRow from "./CardRow";
 
-const Card = () => {
+const Card = ({ threads }: { threads: any }) => {
   return (
     <>
       <main className="flex w-full max-w-full flex-col rounded-2xl border-4 border-blue-400 bg-white p-4">
@@ -21,15 +21,11 @@ const Card = () => {
           </ul>
         </section>
         <section>
-          <CardRow />
-          <CardRow />
-          <CardRow />
-          <CardRow />
-          <CardRow />
-          <CardRow />
-          <CardRow />
-          <CardRow />
-          <CardRow />
+          {threads.map(
+            (thread: { node: any }, index: Key | null | undefined) => (
+              <CardRow threads={thread} key={index} />
+            )
+          )}
         </section>
       </main>
     </>

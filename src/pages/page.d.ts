@@ -6,7 +6,7 @@ import { NextPage } from "next";
 import { ComponentType, ReactElement, ReactNode } from "react";
 
 // Defines the NextPageWithLayout type
-export type NextPageWithLayout<P = {}> = NextPage<P> & {
+export type NextPageWithLayout<P = { threads }> = NextPage<P> & {
   // The getLayout function wraps a page component with a layout component
   getLayout?: (_page: ReactElement) => ReactNode;
   // The layout property specifies which layout component to use

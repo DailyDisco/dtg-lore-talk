@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const CardRow = () => {
+const CardRow = ({ threads }: { threads: any }) => {
   return (
     <ul className="row b mb-7 flex justify-between bg-slate-400">
       <Link href="/user/profilePage">
@@ -18,16 +18,16 @@ const CardRow = () => {
       </Link>
 
       <Link href="">
-        <li>Looking for group</li>
+        <li>{threads?.title}</li>
       </Link>
-
+      {/* {console.log(threads, "threads in cardrow")} */}
       <Link href="/user/profilePage">
-        <li>The Traveler</li>
+        <li>{threads?.userID}</li>
       </Link>
 
-      <li>99</li>
+      <li>{threads?.views}</li>
 
-      <li>99</li>
+      <li>{threads?.replies}</li>
     </ul>
   );
 };
