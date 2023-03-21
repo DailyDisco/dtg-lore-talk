@@ -83,3 +83,12 @@ model VerificationToken {
     @@unique([id, token])
     @@map("verification_tokens")
 }
+
+model Messages {
+    id       String   @id @default(auto()) @map("_id") @db.ObjectId
+    body    String
+    userID String
+    threadID String
+    // createdAt DateTime @default(now())
+    // updatedAt DateTime @updatedAt
+}
