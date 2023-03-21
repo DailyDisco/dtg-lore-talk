@@ -4,7 +4,12 @@ import React from "react";
 const ReusableButton = ({ ButtonName }: { ButtonName: string }) => {
   const router = useRouter();
   const onClick = () => {
-    router.push("/user/messages", "/user/messages");
+    if (ButtonName === "Create a Thread") {
+      router.push("/threads/createThread", "/threads/createThread");
+    }
+    if (ButtonName === "Messages") {
+      router.push("/user/messages", "/user/messages");
+    }
   };
   return (
     <div>

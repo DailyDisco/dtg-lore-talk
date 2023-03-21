@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const MessagesRow = () => {
+const MessagesRow = ({ messages }: { messages: any }) => {
   return (
     <div>
       <ul className="row w mb-7 flex bg-slate-400">
@@ -19,10 +19,10 @@ const MessagesRow = () => {
         </Link>
         <div className="ml-7">
           <Link href="/user/profilePage">
-            <li>The Traveler</li>
+            <li>{messages.userID}</li>
           </Link>
           <Link href="/user/profilePage">
-            <li>This is the description for the post...</li>
+            <li>{messages.body}</li>
           </Link>
         </div>
       </ul>

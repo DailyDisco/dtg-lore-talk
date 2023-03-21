@@ -1,6 +1,6 @@
 import MessagesRow from "./MessagesRow";
 
-const MessagesCard = () => {
+const MessagesCard = ({ messages }: { messages: any }) => {
   return (
     <>
       <main className="flex w-full max-w-full flex-col rounded-2xl border-4 border-blue-400 bg-white p-4">
@@ -12,10 +12,11 @@ const MessagesCard = () => {
           </ul>
         </section>
         <section>
-          <MessagesRow />
-          <MessagesRow />
-          <MessagesRow />
-          <MessagesRow />
+          {messages.map(
+            (message: { node: any }, index: Key | null | undefined) => (
+              <MessagesRow messages={message} key={index} />
+            )
+          )}
         </section>
       </main>
     </>

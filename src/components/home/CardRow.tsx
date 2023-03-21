@@ -4,9 +4,9 @@ import React from "react";
 
 const CardRow = ({ threads }: { threads: any }) => {
   return (
-    <ul className="row b mb-7 flex justify-between bg-slate-400">
-      <Link href="/user/profilePage">
-        <li>
+    <ul className="row mb-7 flex justify-between bg-white">
+      <Link href={`/user/profile/${threads.userID}`}>
+        <li className="">
           <Image
             src="/Cayde.jpg"
             alt="User Profile Pic"
@@ -16,17 +16,14 @@ const CardRow = ({ threads }: { threads: any }) => {
           />
         </li>
       </Link>
-
-      <Link href="">
+      <Link href={`/threads/${threads.id}`}>
         <li>{threads?.title}</li>
       </Link>
       {/* {console.log(threads, "threads in cardrow")} */}
-      <Link href="/user/profilePage">
+      <Link href={`/user/profile/${threads.userID}`}>
         <li>{threads?.userID}</li>
       </Link>
-
       <li>{threads?.views}</li>
-
       <li>{threads?.replies}</li>
     </ul>
   );

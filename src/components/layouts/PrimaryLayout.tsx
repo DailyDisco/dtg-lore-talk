@@ -22,6 +22,7 @@ const PrimaryLayout = ({ children, ...divProps }) => {
         {/* Render the navigation bar */}
         <Header />
         <ReusableButton ButtonName={"Messages"} />
+        <ReusableButton ButtonName={"Create a Thread"} />
         <div className="flex h-screen justify-between">
           {/* change the width of the main contents here */}
           <main
