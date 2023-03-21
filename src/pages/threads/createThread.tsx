@@ -1,5 +1,5 @@
 // don't let the user use this till they're logged in
-const postThread = () => {
+const createThread = () => {
   return (
     <>
       <main className="flex flex-col items-center justify-center">
@@ -20,4 +20,4 @@ const postThread = () => {
   );
 };
 
-export default postThread;
+export default createThread;

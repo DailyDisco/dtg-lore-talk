@@ -22,10 +22,6 @@ const Home: NextPageWithLayout = ({ threads }: { threads: any }) => {
       <main>
         <section>
           <Card threads={threads} />
-          {/* For tRPC */}
-          {/* <p className="text-2xl text-white">
-            {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-          </p> */}
         </section>
       </main>
     </>
@@ -77,10 +73,11 @@ const AuthShowcase: React.FC = () => {
 
 // do the same for the messages
 
+// getServerSideProps/ getStaticProps / getStaticPaths / ISR incrementally static regeneration
 export async function getStaticProps() {
   const prisma = new PrismaClient();
   const threads = (await prisma.threads.findMany()) || [];
-  console.log(threads, "threads return in getStaticProps");
+  // console.log(threads, "threads return in getStaticProps");
 
   return {
     props: {
