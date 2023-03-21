@@ -8,7 +8,8 @@ import Card from "~/components/home/Card";
 import { PrismaClient } from "@prisma/client";
 
 const Home: NextPageWithLayout = ({ threads }: { threads: any }) => {
-  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC", title: "asdxi", "description": "asdas" });
+  //"Hello from tRPC"
   return (
     <>
       <Head>
