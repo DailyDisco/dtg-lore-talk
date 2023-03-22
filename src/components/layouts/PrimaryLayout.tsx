@@ -1,3 +1,4 @@
+import { signIn, useSession } from "next-auth/react";
 import Head from "next/head";
 import Footer from "../common/Footer";
 import Header from "../common/Header";
@@ -12,6 +13,7 @@ const websiteTitle = "DTG Lore Talk";
 
 // The PrimaryLayout component
 const PrimaryLayout = ({ children, ...divProps }) => {
+  const { data: sessionData } = useSession();
   return (
     <>
       <Head>
@@ -23,6 +25,13 @@ const PrimaryLayout = ({ children, ...divProps }) => {
         <Header />
         <ReusableButton ButtonName={"Messages"} />
         <ReusableButton ButtonName={"Create a Thread"} />
+        <div onClick={() => signIn()}>
+          {sessionData ? (
+            <ReusableButton ButtonName={"Sign Out"} />
+          ) : (
+            <ReusableButton ButtonName={"Sign In"} />
+          )}
+        </div>
         <div className="flex h-screen justify-between">
           {/* change the width of the main contents here */}
           <main
