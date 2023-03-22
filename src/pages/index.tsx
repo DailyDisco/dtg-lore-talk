@@ -22,6 +22,7 @@ const Home: NextPageWithLayout = ({ threads }: { threads: any }) => {
       </Head>
       <main>
         <section>
+          <AuthShowcase />
           <Card threads={threads} />
         </section>
       </main>
@@ -57,12 +58,16 @@ const AuthShowcase: React.FC = () => {
         {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
         {secretMessage && <span> - {secretMessage}</span>}
       </p>
-      <button
-        className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
-        onClick={sessionData ? () => void signOut() : () => void signIn()}
-      >
-        {sessionData ? "Sign out" : "Sign in"}
-      </button>
+      <div className="bg-purple-600">
+        <button
+          className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
+          onClick={
+            sessionData ? () => void signOut() : () => void signIn("discord")
+          }
+        >
+          {sessionData ? "Sign out" : "Sign in"}
+        </button>
+      </div>
     </div>
   );
 };
