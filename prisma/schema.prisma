@@ -66,7 +66,7 @@ model Threads {
     id       String   @id @default(auto()) @map("_id") @db.ObjectId
     title    String
     body    String
-    image   String
+    image   String?
     // createdAt DateTime @default(now())
     // updatedAt DateTime @updatedAt
     userID String
