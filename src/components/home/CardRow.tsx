@@ -11,9 +11,8 @@ import {
 const CardRow = ({ threads }: { threads: any }) => {
   return (
     <div className="my-2 flex items-center justify-around rounded-xl bg-white p-3 text-black">
-      <div className="flex items-center">
+      <div className="-ml-3 flex items-center">
         <div className="flex items-center">
-          {/* <UserIcon className="ml-3" height={24} width={24} /> */}
           <Link
             href={`/user/profile/${threads.userID}`}
             className="min-w-1/5 mx-auto text-center"
@@ -22,7 +21,7 @@ const CardRow = ({ threads }: { threads: any }) => {
             <div className="xs:w-25 w-24">{threads?.userID}</div>
           </Link>
         </div>
-        <div className="flex items-center">
+        <div className="ml-3 flex items-center">
           <Link href={`/user/profile/${threads.userID}`} className="min-w-1/5">
             <Image
               src="/Cayde.jpg"

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const createThread = () => {
   // const hello = api.example.hello.useQuery({ text: "from tRPC", title: "asdxi", "description": "asdas" });
+
   const [title, setTitle] = useState("");
   console.log(title, "title");
   const [body, setBody] = useState("");
@@ -11,7 +12,7 @@ const createThread = () => {
   const [image, setImage] = useState("");
   console.log(image, "image");
   const [createObjectURL, setCreateObjectURL] = useState("");
-  // const [userID, setUserID] = useState('')
+  const [userID, setUserID] = useState("GroupWork");
   const [category, setCategory] = useState("");
   console.log(category, "category");
   const views = 0;
@@ -25,25 +26,41 @@ const createThread = () => {
   //     setCreateObjectURL(URL.createObjectURL(i));
   //   }
   // }
+  const mutation = api.example.createThread.useMutation();
 
-  function handleSubmit({ e }: any) {
+  function handleSubmit() {
     // e.preventDefault()
-    console.log("handleSubmit");
-    api.example.createThread.useMutation({
+
+    const data = {
       title: title,
       body: body,
+      // image: image,
+      userID: userID,
       category: category,
-      image: image,
-    });
+      views: 0,
+      replies: 0,
+    };
+    console.log(data, "data");
+    // api.example.createThread.useMutation(data);
+    mutation.mutate(data);
+    // api.example.createThread.useMutation({
+    //   title: title,
+    //   body: body,
+    //   image: image,
+    //   userID: userID,
+    //   category: category,
+    //   views: views,
+    //   replies: replies,
+    // });
   }
 
   return (
     <>
       <div className="flex flex-col items-center">
-        <h2 className="m-7 text-4xl">Post a Thread</h2>
+        <h2 className="m-7 text-4xl">Create a Thread</h2>
         <section className="border-2 border-sky-700 bg-slate-200">
           <form
-            onSubmit={handleSubmit}
+            onSubmit={() => handleSubmit()}
             className="spacebet flex flex-col border-2 border-slate-400"
           >
             <div className="flex flex-col">
@@ -96,7 +113,7 @@ const createThread = () => {
               ></input>
             </div>
             <button className="bg-blue-500 hover:bg-blue-700" type="submit">
-              Post
+              Create
             </button>
           </form>
         </section>

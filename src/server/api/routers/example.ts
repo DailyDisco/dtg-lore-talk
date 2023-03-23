@@ -19,25 +19,26 @@ export const exampleRouter = createTRPCRouter({
       z.object({
         title: z.string(),
         body: z.string(),
-        image: z.string(),
+        // image: z.string(),
         userID: z.string(),
         category: z.string(),
         views: z.number(),
         replies: z.number(),
       })
     )
-    .mutation(({ input, ctx }) => {
+    .mutation(async ({ input, ctx }) => {
       const newThread = ctx.prisma.threads.create({
         data: {
-          title: "Test Title",
-          body: "Test Body",
-          image: "https://picsum.photos/200",
+          title: input.title,
+          body: input.body,
+          // image: input.image,
           userID: "GroupWork",
-          category: "testCategory",
-          views: 0,
-          replies: 0,
+          category: input.category,
+          views: input.views,
+          replies: input.replies,
         },
       });
+      return newThread;
     }),
 
   getAll: publicProcedure.query(({ ctx }) => {
