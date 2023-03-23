@@ -5,13 +5,30 @@ import {
   ArrowRightOnRectangleIcon,
   ChatBubbleLeftIcon,
   EyeIcon,
+  TrashIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
+import { prisma } from "~/server/db";
+import { api } from "~/utils/api";
+import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 
 const CardRow = ({ threads }: { threads: any }) => {
+  const router = useRouter();
+  const deleteThread = api.example.deleteThread.useMutation();
+
+  async function handleDelete() {
+    await deleteThread.mutateAsync(threads.id);
+    router.reload();
+  }
   return (
     <div className="my-2 flex items-center justify-around rounded-xl bg-white p-3 text-black">
       <div className="-ml-3 flex items-center">
+        <div>
+          <button onClick={() => handleDelete()}>
+            <TrashIcon className="mx-2" height={16} width={16} />
+          </button>
+        </div>
         <div className="flex items-center">
           <Link
             href={`/user/profile/${threads.userID}`}

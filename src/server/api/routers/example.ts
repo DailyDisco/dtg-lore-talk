@@ -14,6 +14,16 @@ export const exampleRouter = createTRPCRouter({
         greeting: `Hello ${input.text}`,
       };
     }),
+  deleteThread: publicProcedure
+    .input(z.string())
+    .mutation(async ({ input: data, ctx }) => {
+      const deletedThread = await ctx.prisma.threads.delete({
+        where: {
+          id: data,
+        },
+      });
+      return deletedThread;
+    }),
   createThread: publicProcedure
     .input(
       z.object({

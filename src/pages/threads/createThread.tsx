@@ -41,17 +41,7 @@ const createThread = () => {
       replies: 0,
     };
     console.log(data, "data");
-    // api.example.createThread.useMutation(data);
     mutation.mutate(data);
-    // api.example.createThread.useMutation({
-    //   title: title,
-    //   body: body,
-    //   image: image,
-    //   userID: userID,
-    //   category: category,
-    //   views: views,
-    //   replies: replies,
-    // });
   }
 
   return (
