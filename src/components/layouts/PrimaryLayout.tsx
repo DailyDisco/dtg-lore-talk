@@ -33,7 +33,7 @@ const PrimaryLayout = ({ children, ...divProps }) => {
             tabIndex={0}
             aria-label="main content"
           >
-            <div className="flex w-full items-center justify-center space-x-3">
+            <div className="flex w-full items-center justify-center space-x-3 xs:px-5">
               {sessionData && (
                 <>
                   <ReusableButton ButtonName={"Messages"} />
