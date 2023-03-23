@@ -17,9 +17,9 @@ const PrimaryLayout = ({ children, ...divProps }) => {
   const { data: sessionData } = useSession();
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{websiteTitle}</title>
-      </Head>
+      </Head> */}
       {/* Render the layout */}
       <div {...divProps}>
         {/* Render the navigation bar */}
