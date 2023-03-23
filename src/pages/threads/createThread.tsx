@@ -40,7 +40,7 @@ const createThread = () => {
   return (
     <>
       <div className="flex flex-col items-center">
-        <h2 className="m-3 text-4xl">Post a Thread</h2>
+        <h2 className="m-7 text-4xl">Post a Thread</h2>
         <section className="border-2 border-sky-700 bg-slate-200">
           <form
             onSubmit={handleSubmit}

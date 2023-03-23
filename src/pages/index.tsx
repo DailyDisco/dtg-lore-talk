@@ -24,7 +24,7 @@ const Home: NextPageWithLayout = ({ threads }: { threads: any }) => {
       </Head>
       <main>
         <section>
-          <AuthShowcase />
+          {/* <AuthShowcase /> */}
           <Card threads={threads} />
         </section>
       </main>

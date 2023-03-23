@@ -3,7 +3,7 @@ import CardRow from "./CardRow";
 
 const Card = ({ threads }: { threads: any }) => {
   return (
-    <div className="mx-auto flex w-3/4 flex-col rounded-2xl border-4 border-slate-700 bg-slate-500 p-4 text-white shadow-lg shadow-black">
+    <div className="mx-auto mt-7 flex w-3/4 flex-col rounded-2xl border-4 border-slate-700 bg-slate-500 p-4 text-white shadow-lg shadow-black">
       <h1 className="bold float-left mb-7  text-4xl ">Threads</h1>
       {/* <div className="mb-7 h-1 bg-black"></div> */}
 
