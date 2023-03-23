@@ -7,6 +7,36 @@ import {
 } from "~/server/api/trpc";
 
 export const exampleRouter = createTRPCRouter({
+  upvoteThread: publicProcedure
+    .input(z.string())
+    .mutation(async ({ input: data, ctx }) => {
+      const upvotedThread = await ctx.prisma.threads.update({
+        where: {
+          id: data,
+        },
+        data: {
+          votes: {
+            increment: 1,
+          },
+        },
+      });
+      return upvotedThread;
+    }),
+  downvoteThread: publicProcedure
+    .input(z.string())
+    .mutation(async ({ input: data, ctx }) => {
+      const downvotedThread = await ctx.prisma.threads.update({
+        where: {
+          id: data,
+        },
+        data: {
+          votes: {
+            increment: -1,
+          },
+        },
+      });
+      return downvotedThread;
+    }),
   hello: publicProcedure
     .input(z.object({ text: z.string() }))
     .query(({ input }) => {
@@ -34,6 +64,7 @@ export const exampleRouter = createTRPCRouter({
         category: z.string(),
         views: z.number(),
         replies: z.number(),
+        votes: z.number(),
       })
     )
     .mutation(async ({ input, ctx }) => {
@@ -46,6 +77,7 @@ export const exampleRouter = createTRPCRouter({
           category: input.category,
           views: input.views,
           replies: input.replies,
+          votes: 0,
         },
       });
       return newThread;

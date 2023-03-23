@@ -73,6 +73,7 @@ model Threads {
     category String
     views Int
     replies Int
+    votes Int?
 }
 model VerificationToken {
     id         String   @id @default(auto()) @map("_id") @db.ObjectId

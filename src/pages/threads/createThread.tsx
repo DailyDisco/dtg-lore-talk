@@ -1,9 +1,12 @@
 // don't let the user use this till they're logged in
 import { api } from "~/utils/api";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const createThread = () => {
-  // const hello = api.example.hello.useQuery({ text: "from tRPC", title: "asdxi", "description": "asdas" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC"});
+
+  // const router = useRouter();
 
   const [title, setTitle] = useState("");
   console.log(title, "title");
@@ -15,8 +18,6 @@ const createThread = () => {
   const [userID, setUserID] = useState("GroupWork");
   const [category, setCategory] = useState("");
   console.log(category, "category");
-  const views = 0;
-  const replies = 0;
 
   // function handleImage({ e }: any) {
   //   if (e.target.files && e.target.files[0]) {
@@ -39,6 +40,7 @@ const createThread = () => {
       category: category,
       views: 0,
       replies: 0,
+      votes: 0,
     };
     console.log(data, "data");
     mutation.mutate(data);
