@@ -4,8 +4,8 @@ import React from "react";
 
 const CardRow = ({ threads }: { threads: any }) => {
   return (
-    <div className=" mb-3 flex items-center rounded-xl bg-white p-3 text-black xl:space-x-24 xs:space-x-3">
-      <Link href={`/user/profile/${threads.userID}`}>
+    <div className="flex items-center justify-around rounded-xl bg-white p-3 text-black my-2">
+      <Link href={`/user/profile/${threads.userID}`} className="min-w-1/5">
         <Image
           src="/Cayde.jpg"
           alt="User Profile Pic"
@@ -14,15 +14,15 @@ const CardRow = ({ threads }: { threads: any }) => {
           className="rounded-full"
         />
       </Link>
-      <Link href={`/threads/${threads.id}`}>
+      <Link href={`/threads/${threads.id}`} className="min-w-1/5">
         <div className="w-64 xs:w-16 ">{threads?.title}</div>
       </Link>
       {/* {console.log(threads, "threads in cardrow")} */}
-      <Link href={`/user/profile/${threads.userID}`}>
+      <Link href={`/user/profile/${threads.userID}`} className="min-w-1/5">
         <div className="xs:w-25 w-24">{threads?.userID}</div>
       </Link>
-      <div className="w-16 xs:w-16">{threads?.views}</div>
-      <div className="w-16 xs:w-16">{threads?.replies}</div>
+      <div className="hidden min-w-1/5 md:block">{threads?.views}</div>
+      <div className="hidden min-w-1/5 md:block">{threads?.replies}</div>
     </div>
   );
 };
