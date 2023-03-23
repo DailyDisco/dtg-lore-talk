@@ -8,14 +8,14 @@ const ReusableButton = ({ ButtonName }: { ButtonName: string }) => {
       router.push("/threads/createThread", "/threads/createThread");
     }
     if (ButtonName === "Messages") {
-      router.push("/user/messages", "/user/messages");
+      router.push("/messages", "/messages");
     }
   };
   return (
     <div>
       <button
         onClick={() => onClick()}
-        className="rounded:lg bg-blue-500 py-2 font-bold text-white hover:bg-blue-700"
+        className="rounded:lg bg-blue-500 p-3 font-bold text-white hover:bg-blue-700"
       >
         {ButtonName}
       </button>

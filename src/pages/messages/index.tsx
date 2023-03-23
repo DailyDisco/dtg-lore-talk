@@ -3,7 +3,7 @@ import MessagesCard from "~/components/messages/MessagesCard";
 
 // don't let user use this till they're logged in
 const messagesHome = ({ messages }: { messages: any }) => {
-  console.log(messages, "messages in messageshome");
+  console.log(messages, "messages in messages home");
   return (
     <>
       <MessagesCard messages={messages} />

@@ -2,7 +2,6 @@ import { PrismaClient } from "@prisma/client";
 import Image from "next/image";
 import { useEffect } from "react";
 import Card from "~/components/home/Card";
-import CardRow from "~/components/home/CardRow";
 
 // don't let user use this till they're logged in
 const profilePage = ({ threads, user }: { threads: any; user: any }) => {
@@ -15,8 +14,8 @@ const profilePage = ({ threads, user }: { threads: any; user: any }) => {
 
   return (
     <>
-      <main>
-        <section className="h-128 mb-7">
+      <div>
+        <section className="h-128 m-7 mx-auto flex w-3/4">
           <Image
             src="/Cayde.jpg"
             alt="Profile Picture"
@@ -24,17 +23,17 @@ const profilePage = ({ threads, user }: { threads: any; user: any }) => {
             height={512}
             className="mb-5 rounded-lg"
           />
-          <div className="float">
+          <div className="ml-7">
+            <h1 className="mb-3 text-4xl">Bio</h1>
             <p>{user[0].bio}</p>
           </div>
         </section>
 
         <section>
-          <h2 className="mb-5 text-2xl">Threads</h2>
           {/* <CardRow threads={threads} /> */}
           <Card threads={threads} />
         </section>
-      </main>
+      </div>
     </>
   );
 };

@@ -3,6 +3,7 @@ import Head from "next/head";
 import Footer from "../common/Footer";
 import Header from "../common/Header";
 import ReusableButton from "../common/ReusableButton";
+import Sidebar from "../common/Sidebar";
 // import Sidebar from "../common/Sidebar";
 
 // // Interface for the props of the PrimaryLayout component
@@ -23,38 +24,40 @@ const PrimaryLayout = ({ children, ...divProps }) => {
       <div {...divProps}>
         {/* Render the navigation bar */}
         <Header />
-        <ReusableButton ButtonName={"Messages"} />
-        <ReusableButton ButtonName={"Create a Thread"} />
-        <div onClick={() => signIn()}>
-          {sessionData ? (
-            <ReusableButton ButtonName={"Sign Out"} />
-          ) : (
-            <ReusableButton ButtonName={"Sign In"} />
-          )}
-        </div>
-        <div className="flex h-screen justify-between">
+
+        <div className="flex">
           {/* change the width of the main contents here */}
           <main
-            className="mt-24 ml-24 w-8/12"
+            className="mt-7 mb-24 flex-1"
             role="main"
             tabIndex={0}
             aria-label="main content"
           >
+            <div className="w-128 flex items-center justify-between px-64">
+              <ReusableButton ButtonName={"Messages"} />
+              <ReusableButton ButtonName={"Create a Thread"} />
+              <div onClick={() => signIn()}>
+                {sessionData ? (
+                  <ReusableButton ButtonName={"Sign Out"} />
+                ) : (
+                  <ReusableButton ButtonName={"Sign In"} />
+                )}
+              </div>
+            </div>
             {/* Render the children (content of the layout) */}
             {children}
           </main>
 
           {/* uncomment this to see the a sidebar placeholder */}
           {/* Render the sidebar */}
-          {/* <div className="w-1/3 bg-slate-500">
-            <Sidebar />
-          </div> */}
+
+          {/* <Sidebar /> */}
         </div>
 
         {/* Render the footer */}
-        <div className="h-16 flex-row bg-black text-white">
+        {/* <div className="hidden h-16 flex-row bg-black text-white">
           <Footer />
-        </div>
+        </div> */}
       </div>
     </>
   );

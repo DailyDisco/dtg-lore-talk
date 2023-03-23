@@ -4,28 +4,26 @@ import React from "react";
 
 const CardRow = ({ threads }: { threads: any }) => {
   return (
-    <ul className="row mb-7 flex justify-between bg-white">
+    <div className="mb-3 flex items-center rounded-xl bg-white p-3 text-black">
       <Link href={`/user/profile/${threads.userID}`}>
-        <li className="">
-          <Image
-            src="/Cayde.jpg"
-            alt="User Profile Pic"
-            width={64}
-            height={64}
-            className="rounded-full"
-          />
-        </li>
+        <Image
+          src="/Cayde.jpg"
+          alt="User Profile Pic"
+          width={64}
+          height={64}
+          className="rounded-full"
+        />
       </Link>
       <Link href={`/threads/${threads.id}`}>
-        <li>{threads?.title}</li>
+        <div className="">{threads?.title}</div>
       </Link>
       {/* {console.log(threads, "threads in cardrow")} */}
       <Link href={`/user/profile/${threads.userID}`}>
-        <li>{threads?.userID}</li>
+        <div>{threads?.userID}</div>
       </Link>
-      <li>{threads?.views}</li>
-      <li>{threads?.replies}</li>
-    </ul>
+      <div>{threads?.views}</div>
+      <div>{threads?.replies}</div>
+    </div>
   );
 };
 

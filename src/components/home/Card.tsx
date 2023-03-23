@@ -4,18 +4,18 @@ import CardRow from "./CardRow";
 const Card = ({ threads }: { threads: any }) => {
   return (
     <>
-      <main className="flex w-full max-w-full flex-col rounded-2xl border-4 border-blue-700 bg-slate-400 p-4 shadow-lg shadow-black">
-        <h1 className="mb-7 text-center text-2xl uppercase">Threads</h1>
-        <div className="mb-7 h-1 bg-black"></div>
-        <section className="mb-7">
-          <ul className="row flex justify-around">
-            <li>User</li>
-            <li>Title</li>
-            <li>Author</li>
-            <li>Views</li>
-            <li>Replies</li>
-          </ul>
-        </section>
+      <div className="mx-auto flex w-3/4 flex-col rounded-2xl border-8 border-slate-700 bg-slate-500 p-4 text-white shadow-lg shadow-black">
+        <h1 className="bold float-left mb-7  text-4xl ">Threads</h1>
+        {/* <div className="mb-7 h-1 bg-black"></div> */}
+
+        <div className="mb-7 flex sm:space-x-7 xl:space-x-24">
+          <h3>User</h3>
+          <h3>Title</h3>
+          <h3>Author</h3>
+          <h3>Views</h3>
+          <h3>Replies</h3>
+        </div>
+
         <section>
           {threads.map(
             (thread: { node: any }, index: Key | null | undefined) => (
@@ -23,7 +23,7 @@ const Card = ({ threads }: { threads: any }) => {
             )
           )}
         </section>
-      </main>
+      </div>
     </>
   );
 };
