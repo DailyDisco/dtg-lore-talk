@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import Head from "next/head";
 // import { type NextPage } from "next";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { api } from "~/utils/api";
 import { NextPageWithLayout } from "./page";
 import Card from "~/components/home/Card";

@@ -23,9 +23,13 @@ const profilePage = ({ threads, user }: { threads: any; user: any }) => {
             height={512}
             className="mb-5 rounded-lg"
           />
-          <div className="ml-7">
-            <h1 className="mb-3 text-4xl">Bio</h1>
-            <p>{user[0].bio}</p>
+          <div className="ml-3 sm:hidden">
+            <div>
+              <h1 className="mb-3 text-4xl">Bio</h1>
+            </div>
+            <div>
+              <p>{user[0].bio}</p>
+            </div>
           </div>
         </section>
 

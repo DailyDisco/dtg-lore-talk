@@ -5,26 +5,26 @@ import { useState, useEffect } from "react";
 const createThread = () => {
   // const hello = api.example.hello.useQuery({ text: "from tRPC", title: "asdxi", "description": "asdas" });
   const [title, setTitle] = useState("");
-  console.log(title);
+  console.log(title, "title");
   const [body, setBody] = useState("");
-  console.log(body);
+  console.log(body, "body");
   const [image, setImage] = useState("");
-  console.log(image);
+  console.log(image, "image");
   const [createObjectURL, setCreateObjectURL] = useState("");
   // const [userID, setUserID] = useState('')
   const [category, setCategory] = useState("");
-  console.log(category);
-  // const views = 0
-  // const replies = 0
+  console.log(category, "category");
+  const views = 0;
+  const replies = 0;
 
-  function handleImage({ e }: any) {
-    if (e.target.files && e.target.files[0]) {
-      const i = e.target.files[0];
+  // function handleImage({ e }: any) {
+  //   if (e.target.files && e.target.files[0]) {
+  //     const i = e.target.files[0];
 
-      setImage(i);
-      setCreateObjectURL(URL.createObjectURL(i));
-    }
-  }
+  //     setImage(i);
+  //     setCreateObjectURL(URL.createObjectURL(i));
+  //   }
+  // }
 
   function handleSubmit({ e }: any) {
     // e.preventDefault()
@@ -39,12 +39,17 @@ const createThread = () => {
 
   return (
     <>
-      <main className="flex flex-col items-center justify-center">
-        <h2 className="text-2xl">Post a Thread</h2>
-        <section>
-          <form className="spacebet flex flex-col border-2 border-slate-400">
-            <div>
-              <label htmlFor="title">Title</label>
+      <div className="flex flex-col items-center">
+        <h2 className="m-3 text-4xl">Post a Thread</h2>
+        <section className="border-2 border-sky-700 bg-slate-200">
+          <form
+            onSubmit={handleSubmit}
+            className="spacebet flex flex-col border-2 border-slate-400"
+          >
+            <div className="flex flex-col">
+              <label className="text-xl" htmlFor="title">
+                Title
+              </label>
               <input
                 type="text"
                 name="title"
@@ -53,8 +58,10 @@ const createThread = () => {
                 value={title}
               />
             </div>
-            <div>
-              <label htmlFor="body">Body</label>
+            <div className="flex flex-col">
+              <label className="text-xl" htmlFor="body">
+                Body
+              </label>
               <textarea
                 name="body"
                 id="body"
@@ -64,8 +71,10 @@ const createThread = () => {
                 value={body}
               />
             </div>
-            <div>
-              <label htmlFor="category">Category</label>
+            <div className="flex flex-col">
+              <label className="text-xl" htmlFor="category">
+                Category
+              </label>
               <input
                 type="text"
                 name="category"
@@ -74,26 +83,24 @@ const createThread = () => {
                 value={category}
               ></input>
             </div>
-            <div>
-              <label htmlFor="image">Image</label>
+            <div className="flex flex-col">
+              <label className="text-xl" htmlFor="image">
+                Image
+              </label>
               <input
                 type="file"
                 name="image"
                 id="image"
-                onChange={(e) => handleImage(e)}
+                onChange={(e) => setImage(e.target.value)}
                 value={image}
               ></input>
             </div>
-            <button
-              onClick={handleSubmit}
-              className="bg-blue-500 hover:bg-blue-700"
-              type="submit"
-            >
+            <button className="bg-blue-500 hover:bg-blue-700" type="submit">
               Post
             </button>
           </form>
         </section>
-      </main>
+      </div>
     </>
   );
 };

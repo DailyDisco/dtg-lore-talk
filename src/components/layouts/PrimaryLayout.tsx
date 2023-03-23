@@ -28,14 +28,18 @@ const PrimaryLayout = ({ children, ...divProps }) => {
         <div className="flex">
           {/* change the width of the main contents here */}
           <main
-            className="mt-7 mb-24 flex-1"
+            className="relative mt-7 mb-12 w-full flex-1"
             role="main"
             tabIndex={0}
             aria-label="main content"
           >
-            <div className="w-128 flex items-center justify-between px-64">
-              <ReusableButton ButtonName={"Messages"} />
-              <ReusableButton ButtonName={"Create a Thread"} />
+            <div className="flex w-full items-center justify-center space-x-3">
+              {sessionData && (
+                <>
+                  <ReusableButton ButtonName={"Messages"} />
+                  <ReusableButton ButtonName={"Create a Thread"} />
+                </>
+              )}
               <div onClick={() => signIn()}>
                 {sessionData ? (
                   <ReusableButton ButtonName={"Sign Out"} />
@@ -45,19 +49,12 @@ const PrimaryLayout = ({ children, ...divProps }) => {
               </div>
             </div>
             {/* Render the children (content of the layout) */}
-            {children}
+            <div className="">{children}</div>
           </main>
-
           {/* uncomment this to see the a sidebar placeholder */}
           {/* Render the sidebar */}
-
           {/* <Sidebar /> */}
         </div>
-
-        {/* Render the footer */}
-        {/* <div className="hidden h-16 flex-row bg-black text-white">
-          <Footer />
-        </div> */}
       </div>
     </>
   );

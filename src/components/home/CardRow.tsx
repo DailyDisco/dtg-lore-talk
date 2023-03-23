@@ -4,7 +4,7 @@ import React from "react";
 
 const CardRow = ({ threads }: { threads: any }) => {
   return (
-    <div className="mb-3 flex items-center rounded-xl bg-white p-3 text-black">
+    <div className=" mb-3 flex items-center rounded-xl bg-white p-3 text-black xl:space-x-24">
       <Link href={`/user/profile/${threads.userID}`}>
         <Image
           src="/Cayde.jpg"
