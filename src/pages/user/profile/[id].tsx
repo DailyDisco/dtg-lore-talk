@@ -15,7 +15,7 @@ const profilePage = ({ threads, user }: { threads: any; user: any }) => {
   return (
     <>
       <div>
-        <section className="h-128 m-7 mx-auto flex w-3/4">
+        <section className="h-128 m-7 mx-auto w-3/4 justify-center md:flex">
           <Image
             src="/Cayde.jpg"
             alt="Profile Picture"
@@ -23,7 +23,7 @@ const profilePage = ({ threads, user }: { threads: any; user: any }) => {
             height={512}
             className="mb-5 rounded-lg"
           />
-          <div className="ml-3 sm:hidden">
+          <div className="ml-3">
             <div>
               <h1 className="mb-3 text-4xl">Bio</h1>
             </div>

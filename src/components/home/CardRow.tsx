@@ -56,22 +56,24 @@ const CardRow = ({ threads }: { threads: any }) => {
               alt="User Profile Pic"
               width={96}
               height={96}
-              className="rounded-md"
+              className="hidden rounded-md md:inline-block"
             />
           </Link>
         </div>
       </div>
-      <div className="flex items-center">
-        <ArrowRightOnRectangleIcon className="mx-2" height={20} width={20} />
+      <div className="flex items-center text-xs">
+        <ArrowRightOnRectangleIcon
+          className="mx-2 hidden md:inline-block"
+          height={20}
+          width={20}
+        />
         <Link href={`/threads/${threads.id}`} className="min-w-1/5">
-          <div className="xs:w-16 w-64 text-4xl ">{threads?.title}</div>
+          <div className="w-16 md:w-24 ">{threads?.title}</div>
         </Link>
       </div>
-      <div className="flex items-center">
+      <div className="hidden items-center md:flex">
         <EyeIcon className="mx-2" height={20} width={20} />
-        <div className="min-w-1/5 hidden text-4xl md:block">
-          {threads?.views}
-        </div>
+        <div className="min-w-1/5 text-4xl ">{threads?.views}</div>
       </div>
       <div className="flex items-center">
         <ChatBubbleLeftIcon className="mx-2" height={20} width={20} />
@@ -80,7 +82,7 @@ const CardRow = ({ threads }: { threads: any }) => {
         </div>
       </div>
       <div className="flex items-center">
-        <div className="col mx-2 flex-1">
+        <div className="col mx-2 flex">
           <button onClick={() => handleUpvote()}>
             <ArrowUpCircleIcon height={20} width={20} />
           </button>
@@ -92,12 +94,14 @@ const CardRow = ({ threads }: { threads: any }) => {
       </div>
       {/* display the delete option only if you are the user who posted it */}
       {console.log(threads?.userID, "threads.userID")}
-      {session?.user.name === threads.userID && (
-        <div>
+      {session?.user.name === threads.userID ? (
+        <div className="items-center">
           <button onClick={() => handleDelete()}>
             <TrashIcon className="mx-2" height={20} width={20} />
           </button>
         </div>
+      ) : (
+        <div className="p-4"></div>
       )}
     </div>
   );

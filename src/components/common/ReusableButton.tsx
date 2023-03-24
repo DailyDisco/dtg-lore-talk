@@ -15,7 +15,7 @@ const ReusableButton = ({ ButtonName }: { ButtonName: string }) => {
     <div>
       <button
         onClick={() => onClick()}
-        className="rounded:lg bg-blue-500 p-5 font-bold text-white hover:bg-blue-700"
+        className="rounded:lg bg-blue-500 p-2 font-bold text-white hover:bg-blue-700"
       >
         {ButtonName}
       </button>

@@ -13,7 +13,7 @@ export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<"div"> {}
 const websiteTitle = "DTG Lore Talk";
 
 // The PrimaryLayout component
-const PrimaryLayout = ({ children, ...divProps }) => {
+const PrimaryLayout = ({ children, ...divProps }: { children: any }) => {
   const { data: sessionData } = useSession();
   return (
     <>
@@ -33,7 +33,7 @@ const PrimaryLayout = ({ children, ...divProps }) => {
             tabIndex={0}
             aria-label="main content"
           >
-            <div className="flex w-full items-center justify-center space-x-3 xs:px-5">
+            <div className="flex w-full items-center justify-center space-x-3 px-5 ">
               {sessionData && (
                 <>
                   <ReusableButton ButtonName={"Messages"} />
