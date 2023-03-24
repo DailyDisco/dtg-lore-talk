@@ -2,6 +2,7 @@
 import { api } from "~/utils/api";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 const createThread = () => {
   // const hello = api.example.hello.useQuery({ text: "from tRPC"});
@@ -15,19 +16,21 @@ const createThread = () => {
   const [image, setImage] = useState("");
   console.log(image, "image");
   const [createObjectURL, setCreateObjectURL] = useState("");
-  const [userID, setUserID] = useState("GroupWork");
+  const [userID, setUserID] = useState(null as any);
   const [category, setCategory] = useState("");
   console.log(category, "category");
 
-  // function handleImage({ e }: any) {
-  //   if (e.target.files && e.target.files[0]) {
-  //     const i = e.target.files[0];
+  const { data: session, status } = useSession();
+  console.log(session, "session");
 
-  //     setImage(i);
-  //     setCreateObjectURL(URL.createObjectURL(i));
-  //   }
-  // }
   const mutation = api.example.createThread.useMutation();
+
+  // constantly check if the user is logged in and set the userID to the user's name
+  useEffect(() => {
+    if (session) {
+      setUserID(session.user.name);
+    }
+  }, [session]);
 
   function handleSubmit() {
     // e.preventDefault()

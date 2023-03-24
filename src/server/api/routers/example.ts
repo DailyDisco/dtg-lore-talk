@@ -73,7 +73,7 @@ export const exampleRouter = createTRPCRouter({
           title: input.title,
           body: input.body,
           // image: input.image,
-          userID: "GroupWork",
+          userID: input.userID,
           category: input.category,
           views: input.views,
           replies: input.replies,
