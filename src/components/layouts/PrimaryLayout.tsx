@@ -54,7 +54,7 @@ const PrimaryLayout = ({ children, ...divProps }: { children: any }) => {
                     </main>
                     {/* uncomment this to see the a sidebar placeholder */}
                     {/* Render the sidebar */}
-                    <div className="hidden md:block w-2/6 border-4 rounded-lg p-4 h-full">
+                    <div className="hidden lg:block w-2/6 border-4 rounded-lg p-4 h-full">
                         <div className="text-center py-2">
                             <h2 className="font-bold text-xl text-black">Recent Threads</h2>
                         </div>

@@ -20,7 +20,7 @@ const Header = () => {
                     </div>
                     <div className="w-1/5 sm:w-1/3 flex justify-end items-center">
                         <Link className="mr-4 underline" href={"/login"}>Sign-In</Link>
-                        <button onClick={ openMenuMobile } className="md:hidden">
+                        <button onClick={ openMenuMobile } className="lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="icon icon-tabler icon-tabler-user"
@@ -43,7 +43,7 @@ const Header = () => {
             </header>
             <section
                 id="side-bar"
-                className={`side-bar fixed z-50 h-full w-5/6 translate-x-[120%] shadow-xl transition md:shadow-none ${isOpen ? 'translate-x-[20%]' : ''} md:hidden`}
+                className={`side-bar fixed z-50 h-full w-5/6 translate-x-[120%] shadow-xl transition md:shadow-none ${isOpen ? 'translate-x-[20%]' : ''} lg:hidden`}
             >
                 <ul className="font-lora h-full w-full overflow-y-hidden bg-white p-6 text-lg text-[#202020] md:w-1/2 md:shadow-xl">
                     <Link className="" href="/">
