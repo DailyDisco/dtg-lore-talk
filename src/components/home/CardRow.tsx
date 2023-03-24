@@ -14,8 +14,10 @@ import { prisma } from "~/server/db";
 import { api } from "~/utils/api";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 const CardRow = ({ threads }: { threads: any }) => {
+  const { data: session } = useSession();
   const router = useRouter();
   const deleteThread = api.example.deleteThread.useMutation();
   const upvoteThread = api.example.upvoteThread.useMutation();
@@ -88,11 +90,15 @@ const CardRow = ({ threads }: { threads: any }) => {
         </div>
         <div className="text-4xl">{threads?.votes}</div>
       </div>
-      <div>
-        <button onClick={() => handleDelete()}>
-          <TrashIcon className="mx-2" height={20} width={20} />
-        </button>
-      </div>
+      {/* display the delete option only if you are the user who posted it */}
+      {console.log(threads?.userID, "threads.userID")}
+      {session?.user.name === threads.userID && (
+        <div>
+          <button onClick={() => handleDelete()}>
+            <TrashIcon className="mx-2" height={20} width={20} />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
