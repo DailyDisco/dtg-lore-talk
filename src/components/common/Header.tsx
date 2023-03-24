@@ -45,7 +45,7 @@ const Header = () => {
                 id="side-bar"
                 className={`side-bar fixed z-50 h-full w-5/6 translate-x-[120%] shadow-xl transition md:shadow-none ${isOpen ? 'translate-x-[20%]' : ''} lg:hidden`}
             >
-                <ul className="font-lora h-full w-full overflow-y-hidden bg-white p-6 text-lg text-[#202020] md:w-1/2 md:shadow-xl">
+                <ul className="font-lora h-full w-full overflow-y-hidden bg-white p-6 text-lg text-[#202020] md:shadow-xl">
                     <Link className="" href="/">
                         <li className="my-5 w-full border-b-2 pb-3 font-semibold">
                             <span className="">Home</span>
