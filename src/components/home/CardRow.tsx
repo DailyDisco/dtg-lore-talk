@@ -61,7 +61,7 @@ const CardRow = ({ threads }: { threads: any }) => {
           </Link>
         </div>
       </div>
-      <div className="flex items-center text-xs">
+      <div className="flex items-center text-sm font-bold">
         <ArrowRightOnRectangleIcon
           className="mx-2 hidden md:inline-block"
           height={20}
@@ -71,17 +71,15 @@ const CardRow = ({ threads }: { threads: any }) => {
           <div className="w-16 md:w-24 ">{threads?.title}</div>
         </Link>
       </div>
-      <div className="hidden items-center md:flex">
+      <div className="hidden items-center text-2xl md:flex">
         <EyeIcon className="mx-2" height={20} width={20} />
-        <div className="min-w-1/5 text-4xl ">{threads?.views}</div>
+        <div className="min-w-1/5">{threads?.views}</div>
       </div>
-      <div className="flex items-center">
+      <div className="hidden items-center text-2xl md:flex">
         <ChatBubbleLeftIcon className="mx-2" height={20} width={20} />
-        <div className="min-w-1/5 hidden text-4xl md:block">
-          {threads?.replies}
-        </div>
+        <div className="min-w-1/5">{threads?.replies}</div>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center text-2xl">
         <div className="col mx-2 flex">
           <button onClick={() => handleUpvote()}>
             <ArrowUpCircleIcon height={20} width={20} />
@@ -90,18 +88,18 @@ const CardRow = ({ threads }: { threads: any }) => {
             <ArrowDownCircleIcon height={20} width={20} />
           </button>
         </div>
-        <div className="text-4xl">{threads?.votes}</div>
+        <div className="">{threads?.votes}</div>
       </div>
       {/* display the delete option only if you are the user who posted it */}
       {console.log(threads?.userID, "threads.userID")}
       {session?.user.name === threads.userID ? (
-        <div className="items-center">
+        <div className="flex items-center">
           <button onClick={() => handleDelete()}>
             <TrashIcon className="mx-2" height={20} width={20} />
           </button>
         </div>
       ) : (
-        <div className="p-4"></div>
+        <div className="mr-1 flex p-4"></div>
       )}
     </div>
   );
