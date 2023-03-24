@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Key } from "react";
 import CardRow from "./CardRow";
 
 const Card = ({ threads }: { threads: any }) => {

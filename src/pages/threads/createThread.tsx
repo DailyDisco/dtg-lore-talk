@@ -48,21 +48,21 @@ const createThread = () => {
     console.log(data, "data");
     mutation.mutate(data);
   }
-
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="border-3 mx-auto my-5 flex flex-col rounded-2xl border-slate-700 bg-slate-500 p-4 text-white shadow-lg shadow-black md:w-2/4">
         <h2 className="m-7 text-4xl">Create a Thread</h2>
-        <section className="border-2 border-sky-700 bg-slate-200">
+        <section className="border-2 border-sky-700 bg-slate-400">
           <form
             onSubmit={() => handleSubmit()}
             className="spacebet flex flex-col border-2 border-slate-400"
           >
-            <div className="flex flex-col">
-              <label className="text-xl" htmlFor="title">
+            <div className="flex  flex-col text-black">
+              <label className="mx-2 text-2xl" htmlFor="title">
                 Title
               </label>
               <input
+                className="mx-2 border-2 border-slate-400 "
                 type="text"
                 name="title"
                 id="title"
@@ -70,11 +70,12 @@ const createThread = () => {
                 value={title}
               />
             </div>
-            <div className="flex flex-col">
-              <label className="text-xl" htmlFor="body">
+            <div className="flex flex-col text-black">
+              <label className="mx-2 text-2xl " htmlFor="body">
                 Body
               </label>
               <textarea
+                className="mx-2 border-2 border-slate-400"
                 name="body"
                 id="body"
                 cols={30}
@@ -83,11 +84,12 @@ const createThread = () => {
                 value={body}
               />
             </div>
-            <div className="flex flex-col">
-              <label className="text-xl" htmlFor="category">
+            <div className="flex flex-col text-black">
+              <label className="mx-2 text-2xl" htmlFor="category">
                 Category
               </label>
               <input
+                className="mx-2 border-2 border-slate-400"
                 type="text"
                 name="category"
                 id="category"
@@ -95,11 +97,12 @@ const createThread = () => {
                 value={category}
               ></input>
             </div>
-            <div className="flex flex-col">
-              <label className="text-xl" htmlFor="image">
+            <div className="flex flex-col text-black">
+              <label className="mx-2 text-2xl" htmlFor="image">
                 Image
               </label>
               <input
+                className="mx-2 border-2 border-slate-400"
                 type="file"
                 name="image"
                 id="image"
@@ -107,7 +110,10 @@ const createThread = () => {
                 value={image}
               ></input>
             </div>
-            <button className="bg-blue-500 hover:bg-blue-700" type="submit">
+            <button
+              className="my-3 mx-auto h-8 w-16 rounded-lg bg-blue-500 hover:bg-blue-700"
+              type="submit"
+            >
               Create
             </button>
           </form>
