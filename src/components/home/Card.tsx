@@ -2,12 +2,13 @@ import Link from "next/link";
 import { Key, useState } from "react";
 import CardRow from "./CardRow";
 import { usePathname } from "next/navigation";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const Card = ({ threads }: { threads: any }) => {
   const pathname = usePathname();
   const [catFilter, setCatFilter] = useState("");
   console.log(threads, "threads");
-
+  const { data: sessionData } = useSession();
   const handleCatFilter = (cat: string) => {
     setCatFilter(cat);
     console.log(catFilter, "catFilter");
@@ -65,17 +66,33 @@ const Card = ({ threads }: { threads: any }) => {
             >
               Looking for Group
             </button>
-
-            {/* <Link href="/">
-              <button className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600">
-                Messages
-              </button>
-            </Link>
-            <Link href="/">
-              <button className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600">
-                Create a Thread
-              </button>
-            </Link> */}
+            <div className="hidden space-x-1 space-y-1">
+              <Link href="/messages">
+                <button className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600">
+                  Messages
+                </button>
+              </Link>
+              <Link href="/threads/createThread">
+                <button className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600">
+                  Create a Thread
+                </button>
+              </Link>
+              {sessionData ? (
+                <button
+                  onClick={() => signOut()}
+                  className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600"
+                >
+                  Logout
+                </button>
+              ) : (
+                <button
+                  onClick={() => signIn()}
+                  className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600"
+                >
+                  Login
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}

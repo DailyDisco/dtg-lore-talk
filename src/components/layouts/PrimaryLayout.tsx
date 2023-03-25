@@ -1,4 +1,4 @@
-import { signIn, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Footer from "../common/Footer";
 import Header from "../common/Header";
@@ -10,9 +10,6 @@ import Link from "next/link";
 // Interface for the props of the PrimaryLayout component
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<"div"> {}
 
-// Website title for the <Head> component
-const websiteTitle = "DTG Lore Talk";
-
 // The PrimaryLayout component
 const PrimaryLayout = ({ children, ...divProps }: { children: any }) => {
   const { data: sessionData } = useSession();
@@ -22,7 +19,7 @@ const PrimaryLayout = ({ children, ...divProps }: { children: any }) => {
       <div {...divProps}>
         {/* Render the navigation bar */}
         <Header />
-        <div className="flex h-full">
+        <div className="flex h-full p-1">
           {/* change the width of the main contents here */}
           <main
             className="relative mt-7 mb-12 w-full flex-1 md:w-4/5"
@@ -37,16 +34,20 @@ const PrimaryLayout = ({ children, ...divProps }: { children: any }) => {
                   <ReusableButton ButtonName={"Create a Thread"} />
                 </>
               )}
-              <div onClick={() => signIn()}>
+              <div>
                 {sessionData ? (
-                  <ReusableButton ButtonName={"Sign Out"} />
+                  <div onClick={() => signIn()}>
+                    <ReusableButton ButtonName={"Sign Out"} />
+                  </div>
                 ) : (
-                  <ReusableButton ButtonName={"Sign In"} />
+                  <div onClick={() => signOut()}>
+                    <ReusableButton ButtonName={"Sign In"} />
+                  </div>
                 )}
               </div>
             </div>
             {/* Render the children (content of the layout) */}
-            <div className="">{children}</div>
+            {children}
           </main>
           {/* uncomment this to see the a sidebar placeholder */}
           {/* Render the sidebar */}
