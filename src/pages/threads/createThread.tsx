@@ -39,6 +39,7 @@ const createThread = () => {
       title: title,
       body: body,
       // image: image,
+      // username: session?.user.name,
       userID: userID,
       category: category,
       views: 0,
@@ -50,9 +51,9 @@ const createThread = () => {
   }
   return (
     <>
-      <div className="border-3 mx-auto my-5 flex flex-col rounded-2xl border-slate-700 bg-slate-500 p-4 text-white shadow-lg shadow-black md:w-2/4">
+      <div className="mx-auto my-5 flex flex-col rounded-2xl border-8 border-slate-700 bg-slate-500 p-4 text-white shadow-lg shadow-black md:w-2/4">
         <h2 className="m-7 text-4xl">Create a Thread</h2>
-        <section className="border-2 border-sky-700 bg-slate-400">
+        <section className="rounded-lg border-4 border-sky-700 bg-slate-400">
           <form
             onSubmit={() => handleSubmit()}
             className="spacebet flex flex-col border-2 border-slate-400"
@@ -84,7 +85,21 @@ const createThread = () => {
                 value={body}
               />
             </div>
-            <div className="flex flex-col text-black">
+            <div className="mx-2 mb-3 mt-3 flex flex-col text-black">
+              <label className="mx-2 text-2xl" htmlFor="category">
+                <select
+                  onChange={(e) => setCategory(e.target.value)}
+                  className=""
+                  name="category"
+                  id="category"
+                >
+                  <option value="Lore-Discussion">Lore Discussion</option>
+                  <option value="Off-Topic">Off-Topic</option>
+                  <option value="Looking-for-Group">Looking for Group</option>
+                </select>
+              </label>
+            </div>
+            {/* <div className="flex flex-col text-black">
               <label className="mx-2 text-2xl" htmlFor="category">
                 Category
               </label>
@@ -96,7 +111,7 @@ const createThread = () => {
                 onChange={(e) => setCategory(e.target.value)}
                 value={category}
               ></input>
-            </div>
+            </div> */}
             <div className="flex flex-col text-black">
               <label className="mx-2 text-2xl" htmlFor="image">
                 Image
