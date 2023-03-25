@@ -13,8 +13,14 @@ const Card = ({ threads }: { threads: any }) => {
     console.log(catFilter, "catFilter");
   };
 
-  if (catFilter) {
+  if (
+    catFilter == "Lore-Discussion" ||
+    catFilter == "Off-Topic" ||
+    catFilter == "Looking-for-Group"
+  ) {
     threads = threads.filter((thread: any) => thread.category === catFilter);
+  } else if (catFilter == "All") {
+    threads = threads;
   }
 
   return (
@@ -33,7 +39,10 @@ const Card = ({ threads }: { threads: any }) => {
 
           {/* category buttons */}
           <div className="flex space-x-1">
-            <button className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600">
+            <button
+              onClick={() => handleCatFilter("All")}
+              className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600"
+            >
               All
             </button>
             <button
