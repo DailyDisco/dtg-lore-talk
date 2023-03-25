@@ -24,7 +24,7 @@ const Card = ({ threads }: { threads: any }) => {
   }
 
   return (
-    <div className="mx-auto mt-4 flex w-11/12 flex-col rounded-2xl border-8 border-slate-700 bg-slate-500 p-3 text-white shadow-lg shadow-black md:w-3/4">
+    <div className="mx-auto mt-4 flex flex-col rounded-2xl border-8 border-slate-700 bg-slate-500 p-3 text-white shadow-lg shadow-black md:w-10/12">
       <h1 className="bold mb-4 text-4xl">Threads</h1>
       {pathname === "/" && (
         <div>
@@ -38,7 +38,7 @@ const Card = ({ threads }: { threads: any }) => {
           </div>
 
           {/* category buttons */}
-          <div className="flex space-x-1">
+          <div className="mb-1 flex-1 space-x-1 space-y-1">
             <button
               onClick={() => handleCatFilter("All")}
               className="rounded bg-slate-700 py-2 px-4 font-bold text-white hover:bg-slate-600"
