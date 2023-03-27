@@ -1,5 +1,28 @@
 import { z } from "zod";
 
+/* zod primitive type */
+// // primitive values
+// z.string();
+// z.number();
+// z.bigint();
+// z.boolean();
+// z.date();
+// z.symbol();
+
+// // empty types
+// z.undefined();
+// z.null();
+// z.void(); // accepts undefined
+
+// // catch-all types
+// // allows any value
+// z.any();
+// z.unknown();
+
+// // never type
+// // allows no values
+// z.never();
+
 /**
  * Specify your server-side environment variables schema here. This way you can ensure the app isn't
  * built with invalid env vars.
@@ -16,13 +39,13 @@ const server = z.object({
     // Since NextAuth.js automatically uses the VERCEL_URL if present.
     (str) => process.env.VERCEL_URL ?? str,
     // VERCEL_URL doesn't include `https` so it cant be validated as a URL
-    process.env.VERCEL ? z.string().min(1) : z.string().url(),
+    process.env.VERCEL ? z.string().min(1) : z.string().url()
   ),
   // Add `.min(1) on ID and SECRET if you want to make sure they're not empty
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
   EMAIL_SERVER: z.string(),
-  EMAIL_FROM: z.string()
+  EMAIL_FROM: z.string(),
 });
 
 /**
@@ -47,7 +70,7 @@ const processEnv = {
   DISCORD_CLIENT_ID: process.env.DISCORD_CLIENT_ID,
   DISCORD_CLIENT_SECRET: process.env.DISCORD_CLIENT_SECRET,
   EMAIL_SERVER: process.env.EMAIL_SERVER,
-  EMAIL_FROM: process.env.EMAIL_FROM
+  EMAIL_FROM: process.env.EMAIL_FROM,
   // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 };
 
@@ -74,7 +97,7 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
   if (parsed.success === false) {
     console.error(
       "❌ Invalid environment variables:",
-      parsed.error.flatten().fieldErrors,
+      parsed.error.flatten().fieldErrors
     );
     throw new Error("Invalid environment variables");
   }
@@ -88,7 +111,7 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
         throw new Error(
           process.env.NODE_ENV === "production"
             ? "❌ Attempted to access a server-side environment variable on the client"
-            : `❌ Attempted to access server-side environment variable '${prop}' on the client`,
+            : `❌ Attempted to access server-side environment variable '${prop}' on the client`
         );
       return target[/** @type {keyof typeof target} */ (prop)];
     },
