@@ -39,57 +39,65 @@ const CardRow = ({ threads }: { threads: any }) => {
   }
   return (
     <div className="my-2 flex items-center justify-around rounded-xl bg-white p-3 text-black">
-      <div className="-ml-3 flex items-center">
+      <div className="-ml-5 flex items-center">
+
         <div className="flex items-center">
           <Link
             href={`/user/profile/${threads.userID}`}
-            className="min-w-1/5 mx-auto text-center"
+            className="min-w-1/4 mx-auto text-center"
           >
             <UserIcon className="mx-auto" height={24} width={24} />
-            <div className="xs:w-24 w-24">{threads?.userID}</div>
+            <div className="w-24 text-sm">{threads?.userID}</div>
           </Link>
         </div>
-        <div className="ml-3 flex items-center">
+        
+        <div className="flex items-center">
           <Link href={`/user/profile/${threads.userID}`} className="min-w-1/5">
             <Image
               src="/Cayde.jpg"
               alt="User Profile Pic"
               width={96}
               height={96}
-              className="hidden rounded-md md:inline-block"
+              className="hidden rounded-md lg:inline-block"
             />
           </Link>
         </div>
+
       </div>
-      <div className="flex items-center text-sm font-bold">
+
+      <div className="flex items-center text-sm -ml-3">
         <ArrowRightOnRectangleIcon
-          className="mx-2 hidden md:inline-block"
+          className="mx-3 hidden lg:inline-block"
           height={20}
           width={20}
         />
         <Link href={`/threads/${threads.id}`} className="min-w-1/5">
-          <div className="w-16 md:w-24 ">{threads?.title}</div>
+          <div className="w-24 md:w-24 ">{threads?.title}</div>
         </Link>
       </div>
-      <div className="hidden items-center text-2xl md:flex">
+
+      <div className="hidden items-center text-2xl lg:flex">
         <EyeIcon className="mx-2" height={20} width={20} />
         <div className="min-w-1/5">{threads?.views}</div>
       </div>
+
       <div className="hidden items-center text-2xl md:flex">
         <ChatBubbleLeftIcon className="mx-2" height={20} width={20} />
         <div className="min-w-1/5">{threads?.replies}</div>
       </div>
-      <div className="flex items-center text-2xl">
+
+      <div className="flex items-center text-xl">
         <div className="col mx-2 flex">
           <button onClick={() => handleUpvote()}>
-            <ArrowUpCircleIcon height={20} width={20} />
+            <ArrowUpCircleIcon height={18} width={18} />
           </button>
           <button onClick={() => handleDownvote()}>
-            <ArrowDownCircleIcon height={20} width={20} />
+            <ArrowDownCircleIcon height={18} width={18} />
           </button>
         </div>
         <div className="">{threads?.votes}</div>
       </div>
+
       {/* display the delete option only if you are the user who posted it */}
       {console.log(threads?.userID, "threads.userID")}
       {session?.user.name === threads.userID ? (
@@ -101,6 +109,7 @@ const CardRow = ({ threads }: { threads: any }) => {
       ) : (
         <div className="mr-1 flex p-4"></div>
       )}
+
     </div>
   );
 };

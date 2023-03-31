@@ -8,6 +8,10 @@ import type { GetStaticProps, NextPage } from "next";
 // {singleThread}: {singleThread: any}
 const viewThread: NextPage<{ postId: string }> = ({ postId }) => {
     const { data } = api.example.getThread.useQuery(postId)
+    const {data: replies} = api.example.getReplies.useQuery(postId)
+    console.log(replies, "replies")
+    // const { data: replies } = api.example.getReplies.useQuery(postId)
+    // console.log(replies)
 
     if(!data) return <div>404</div>
 

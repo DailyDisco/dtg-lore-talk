@@ -25,7 +25,7 @@ const Card = ({ threads }: { threads: any }) => {
   }
 
   return (
-    <div className="mx-auto mt-4 flex flex-col rounded-2xl border-8 border-slate-700 bg-slate-500 p-3 text-white shadow-lg shadow-black md:w-10/12">
+    <div className="mx-auto mt-4 flex flex-col rounded-2xl border-8 border-slate-700 bg-slate-500 p-3 text-white shadow-lg shadow-black w-11/12 md:w-10/12">
       <h1 className="bold mb-4 text-4xl">Threads</h1>
       {pathname === "/" && (
         <div>

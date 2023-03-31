@@ -85,6 +85,17 @@ export const exampleRouter = createTRPCRouter({
             return newThread;
         }),
 
+    getReplies: publicProcedure
+        .query(async ({ input, ctx }) => {
+            const replies = await ctx.prisma.replies.findMany({
+                where: {
+                    id: input,
+                },
+            });
+            if(!replies) throw new TRPCError({ code: "NOT_FOUND" })
+            return replies;
+        }),
+
     getThread: publicProcedure
         .query(async ({ input, ctx }) => {
             const post = await ctx.prisma.threads.findFirst({
@@ -94,8 +105,8 @@ export const exampleRouter = createTRPCRouter({
             })
             if(!post) throw new TRPCError({ code: "NOT_FOUND" })
             return post
-    }), 
-
+    }),
+   
   getAll: publicProcedure.query(({ ctx }) => {
         return ctx.prisma.example.findMany();
     }),
